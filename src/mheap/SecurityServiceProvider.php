@@ -37,8 +37,7 @@ class SecurityServiceProvider implements ServiceProviderInterface
 
         // Make sure we can access login and login_check unauthenticated
         $login_routes = array(
-            "_login" => $app['mheap.security.pages']['login'],
-            "_login_check" => $app['mheap.security.pages']['login_check']
+            "_login" => $app['mheap.security.pages']['login']
         );
 
         // Merge our anon routes with the login routes
