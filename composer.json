@@ -2,8 +2,7 @@
     "name": "mheap/silex-security",
     "description": "Wrapper around symfony\\security to reduce config needed",
     "require": {
-        "symfony/security": "2.1.*",
-        "silex/silex": "*"
+        "symfony/security": "2.1.*"
     },
     "license": "MIT",
     "authors": [
