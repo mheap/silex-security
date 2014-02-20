@@ -50,20 +50,13 @@ class SecurityServiceProvider implements ServiceProviderInterface
             throw new \Exception("mheap.security.user_provider must implement UserProviderInterface");
         }
 
-        // Create our endpoints which can have anonymous access, but that we also
-        // want access to the user object on
-        $params['security.firewalls']['unsecured'] = array(
-            "pattern" => '^('.implode($app['mheap.security.open_routes'], "|").')$',
-            'users' => $app['mheap.security.user_provider'],
-            'anonymous' => true
-        );
-
         // Secure every other endpoint by default
         $params['security.firewalls']['secured'] = array(
             "pattern" => '^.*$',
             'form' => array('default_target_path' => $app['mheap.security.pages']['login_redirects_to'], 'login_path' => $app['mheap.security.pages']['login'], 'check_path' => $app['mheap.security.pages']['login_check']),
             'logout' => array('logout_path' => $app['mheap.security.pages']['logout']),
-            'users' => $app['mheap.security.user_provider']
+            'users' => $app['mheap.security.user_provider'],
+            'anonymous' => true
         );
 
         // And register our security provider
