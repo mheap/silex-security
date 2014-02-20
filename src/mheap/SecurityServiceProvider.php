@@ -54,8 +54,6 @@ class SecurityServiceProvider implements ServiceProviderInterface
         // want access to the user object on
         $params['security.firewalls']['unsecured'] = array(
             "pattern" => '^('.implode($app['mheap.security.open_routes'], "|").')$',
-            'form' => array('default_target_path' => $app['mheap.security.pages']['login_redirects_to'], 'login_path' => $app['mheap.security.pages']['login'], 'check_path' => $app['mheap.security.pages']['login_check']),
-            'logout' => array('logout_path' => $app['mheap.security.pages']['logout']),
             'users' => $app['mheap.security.user_provider'],
             'anonymous' => true
         );

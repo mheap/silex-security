@@ -47,6 +47,11 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface {
 		return $this->salt;
 	}
 
+	public function getEmail()
+	{
+		return $this->getUsername();
+	}
+
 	public function getUsername()
 	{
 		return $this->username;
